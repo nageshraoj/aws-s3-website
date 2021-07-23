@@ -24,6 +24,6 @@ resource "aws_s3_bucket" "s3bcuket" {
   })
 
   provisioner "local-exec" {
-    command = "aws s3 cp ${var.app_folder}/. s3://#{var.bucket_name} --recursive"
+    command = "aws s3 cp ${var.app_folder}/ s3://#{var.bucket_name} --recursive"
   }
 }
