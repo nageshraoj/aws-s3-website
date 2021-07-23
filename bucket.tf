@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "s3bcuket" {
   bucket = var.bucket_name
-  acl = "public-read" 
+  acl    = "public-read"
   versioning {
     enabled = true
   }
@@ -23,6 +23,7 @@ resource "aws_s3_bucket" "s3bcuket" {
     ]
   })
 
+  force_destroy = true
   provisioner "local-exec" {
     command = "aws s3 cp ${var.app_folder}/ s3://#{var.bucket_name} --recursive"
   }
